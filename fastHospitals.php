@@ -36,11 +36,11 @@
       </form>
       <ul class="nav navbar-nav">
         <li class="dropdown">
-          <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?php  echo"Bem vindo $variaveldeusuario" ?><span class="caret"></span></a>
+          <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Bem vindo, <?php echo $_COOKIE["user"];?><span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="edit_Perfil.html">Perfil</a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="login.html">Sair</a></li>
+            <li><a href="exit.php">Sair</a></li>
           </ul>
         </li>
       </ul>

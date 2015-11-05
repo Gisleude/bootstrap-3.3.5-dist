@@ -39,7 +39,7 @@
         <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Bem vindo, <?php echo $_COOKIE["user"];?><span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="edit_Perfil.html">Perfil</a></li>
+            <li><a href="edit_Perfil.php">Perfil</a></li>
             <li role="separator" class="divider"></li>
             <li><a href="login.html">Sair</a></li>
           </ul>
