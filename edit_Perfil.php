@@ -1,10 +1,11 @@
 <!DOCTYPE html>
+
 <html lang="en">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <!--Titulo-->
     <title>DiagPre</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
   </head>
@@ -12,32 +13,41 @@
 
   <nav class="navbar navbar-default">
   <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
+    <!-- Logo -->
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="index.html">DiagPre</a>
+      <a class="navbar-brand">DiagPre</a>
     </div>
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
+    <!-- Menu -->    
+    <ul class="nav navbar-nav navbar">
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" class="active">Diagnóstico<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+        <li><a href="diagnostic.php">Diagnóstico</a></li>
+        <li><a href="lastDiagnostic.php">Ultimo Diagnóstico</a></li>
+          </ul>
+        </li>
+      </ul>
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li><a href="diagnostic.html">Diagnóstico</a></li>
-        <li><a href="lastDiagnostic.html">Ultimo Diagnóstico</a></li>
+      <ul class="nav navbar-nav navbar">
+        <li><a href="fastHospitals.php">Hospitais próximos</a></li>
       </ul>
       <form class="navbar-form navbar-left" role="search">
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <div class="form-group">
           <input type="text" class="form-control" placeholder="O que você está sentindo?">
         </div>
-        <button type="submit" class="btn btn-default">Procurar</button>
+      &nbsp; <button type="submit" class="btn btn-default">Procurar</button>
       </form>
-      <ul class="nav navbar-nav">
+      <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Bem vindo, <?php echo $_COOKIE["user"]; ?><span class="caret"></span></a>
+          <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Bem vindo, <?php echo $_COOKIE["user"];?><span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li class="active"><a href="edit_Perfil.php">Perfil</a></li>
             <li role="separator" class="divider"></li>
@@ -45,15 +55,14 @@
           </ul>
         </li>
       </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="fastHospitals.html">Hospitais próximos</a></li>
-      </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
+    </div>
+  </div>
 </nav>
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+
+<!-- 
+  Não Mecher Aqui em Baixo
+-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
   </body>
 </html>

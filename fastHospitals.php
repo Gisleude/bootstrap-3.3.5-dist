@@ -1,4 +1,5 @@
 ﻿<!DOCTYPE html>
+
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -22,30 +23,37 @@
       <a class="navbar-brand">DiagPre</a>
     </div>
 
-    <!-- Menu -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li><a href="diagnostic.html">Diagnóstico</a></li>
-        <li><a href="lastDiagnostic.html">Ultimo Diagnóstico</a></li>
-      </ul>
-      <form class="navbar-form navbar-left" role="search">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="O que você está sentindo?">
-        </div>
-        <button type="submit" class="btn btn-default">Procurar</button>
-      </form>
-      <ul class="nav navbar-nav">
+    <!-- Menu -->    
+    <ul class="nav navbar-nav navbar">
         <li class="dropdown">
-          <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Bem vindo, <?php echo $_COOKIE["user"];?><span class="caret"></span></a>
+          <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" class="active">Diagnóstico<span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="edit_Perfil.html">Perfil</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="exit.php">Sair</a></li>
+        <li><a href="diagnostic.php">Diagnóstico</a></li>
+        <li><a href="lastDiagnostic.php">Ultimo Diagnóstico</a></li>
           </ul>
         </li>
       </ul>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar">
+        <li class="active"><a href="fastHospitals.php">Hospitais próximos</a></li>
+      </ul>
+      <form class="navbar-form navbar-left" role="search">
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="O que você está sentindo?">
+        </div>
+      &nbsp; <button type="submit" class="btn btn-default">Procurar</button>
+      </form>
       <ul class="nav navbar-nav navbar-right">
-        <li class="active"><a href="fastHospitals.html">Hospitais próximos</a></li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Bem vindo, <?php echo $_COOKIE["user"];?><span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="edit_Perfil.php">Perfil</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="login.html">Sair</a></li>
+          </ul>
+        </li>
       </ul>
     </div>
   </div>

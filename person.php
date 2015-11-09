@@ -23,19 +23,28 @@
       <a class="navbar-brand">DiagPre</a>
     </div>
 
-    <!-- Menu -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li><a href="diagnostic.html">Diagnóstico</a></li>
+    <!-- Menu -->    
+    <ul class="nav navbar-nav navbar">
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Diagnóstico<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+        <li><a href="diagnostic.php">Diagnóstico</a></li>
         <li><a href="lastDiagnostic.html">Ultimo Diagnóstico</a></li>
+          </ul>
+        </li>
       </ul>
-      <form class="navbar-form navbar-left" role="search">
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar">
+        <li><a href="fastHospitals.php">Hospitais próximos</a></li>
+      </ul>
+      <form class="navbar-form navbar-left" role="search">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <div class="form-group">
           <input type="text" class="form-control" placeholder="O que você está sentindo?">
         </div>
-        <button type="submit" class="btn btn-default">Procurar</button>
+      &nbsp; <button type="submit" class="btn btn-default">Procurar</button>
       </form>
-      <ul class="nav navbar-nav">
+      <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Bem vindo, <?php echo $_COOKIE["user"];?><span class="caret"></span></a>
           <ul class="dropdown-menu">
@@ -44,9 +53,6 @@
             <li><a href="login.html">Sair</a></li>
           </ul>
         </li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="fastHospitals.html">Hospitais próximos</a></li>
       </ul>
     </div>
   </div>
