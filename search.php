@@ -1,4 +1,5 @@
 ﻿<!DOCTYPE html>
+
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -8,10 +9,10 @@
     <title>DiagPre</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
   </head>
-  <body>
+  <body  bgcolor="#000000">
 
   <nav class="navbar navbar-default">
-  <div class="container-fluid">
+  <div class="container-fluid" >
     <!-- Logo -->
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -27,20 +28,20 @@
         <li class="dropdown" class="active">
           <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Diagnóstico<span class="caret"></span></a>
           <ul class="dropdown-menu">
-        <li class="active"><a href="diagnostic.php">Diagnóstico</a></li>
-        <li><a href="lastDiagnostic.php">Ultimo Diagnóstico</a></li>
+        <li><a href="diagnostic.php">Diagnóstico</a></li>
+        <li class="active"><a href="lastDiagnostic.php">Ultimo Diagnóstico</a></li>
           </ul>
         </li>
       </ul>
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar">
-        <li><a href="fastHospitals.php">Hospitais próximos</a></li>
+        <li><a href="fastHospitals.php" >Hospitais próximos</a></li>
       </ul>
-      <form class="navbar-form navbar-left" role="search" action="search.php" method="post">
+      <form class="navbar-form navbar-left" role="search">
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <div class="form-group">
-          <input type="text" class="form-control" placeholder="O que você está sentindo?">
+          <input id="search" name="search" type="text" class="form-control" required="" placeholder="O que você está sentindo?">
         </div>
       &nbsp; <button type="submit" class="btn btn-default">Procurar</button>
       </form>
@@ -57,7 +58,6 @@
     </div>
   </div>
 </nav>
-
 <!-- 
   Não Mecher Aqui em Baixo
 -->
