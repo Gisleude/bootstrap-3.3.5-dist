@@ -67,40 +67,46 @@
     </div>
   </div>
 </nav>
-<center><div class="row">
-  <div class="col-sm-6 col-md-8 col-md-offset-2">
-    <div class="thumbnail">
-      <div class="caption">
-              <?php
+       <?php
         if(isset($_POST['botao'])){
           $busca = $_POST['search'];
+
+          if($busca == '' or $busca == " "){
+            echo '<br><center><img src="loading.gif" width="144" height="144"></center>';
+          }else{
           $busca_dividida = explode(',', $busca);
           $quant = count($busca_dividida);
+          $id_mostrado = array("");
 
           for($i=0; $i < $quant; $i++){
             $pesquisa = $busca_dividida[$i];
 
             $sql = mysql_query("SELECT * FROM doenca WHERE tags LIKE '%$pesquisa%' ");
-            while($linha = mysql_fetch_array($sql)){
-              $name = $linha['name'];
-              $tags = $linha['tags'];
-              $description = $linha['description'];
-              $cause = $linha['cause'];
-              $tratament = $linha['tratament'];
-              $medicaments = $linha['medicaments'];
-              $prevetion = $linha['prevetion'];
+            $quant_campos = mysql_num_rows($sql);
+            if ($quant_campos == 0){
+              echo '<br><center><img src="exclamacao.png" width="144" height="144"></center><br><br><center><h2>Nenhuma doença encontrada com esses sintomas.</h2></center>';
             }
-          }
-        }
+            else{
+              while($linha = mysql_fetch_array($sql)){
+                $id = $linha['ID'];
+                $name = $linha['name'];
+                $tags = $linha['tags'];
+                $description = $linha['description'];
+                $cause = $linha['cause'];
+                $tratament = $linha['tratament'];
+                $medicaments = $linha['medicaments'];
+                $prevetion = $linha['prevetion'];
+             }
       ?>
+<center><div class="row">
+  <div class="col-sm-6 col-md-8 col-md-offset-2">
+    <div class="thumbnail">
+      <div class="caption">
 
-<!-- // PRECISO AJEITAR O SEARCH NESSA PARTE
-      
-//      if($_POST['search'] == '' || ){
-
- //     } -->
 <li class="dropdown">
-  <?php echo "<center><h3>".$name."</h3><p>".$tags."</p>";?>
+  <?php 
+    if(!array_search($id, $id_mostrado)){
+    echo "<center><h3>".$name."</h3><p>".$tags."</p>";?>
           <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="caret"></span></a>
           <ul class="dropdown-menu">
           <li><br>
@@ -141,6 +147,8 @@
         <div class="panel-body">
           <?php
             echo"<p>".$prevetion."</p>";
+          array_push($id_mostrado, "$id");
+          }
           ?>
         </div>
       </div>
@@ -155,6 +163,12 @@
 </div>
 </div>
 </center>
+<?php
+}
+}
+}
+}
+?>
 <!-- 
   Não Mecher Aqui em Baixo
 -->

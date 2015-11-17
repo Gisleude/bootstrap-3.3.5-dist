@@ -1,5 +1,12 @@
 <!DOCTYPE html>
+<?php
+  header('Content-Type: text/html;  charset=utf-8',true);
+  $db = @mysql_connect("localhost", "root","") or die("Ocorreu o seguine erro na conexão: ".mysql_error());
+  @mysql_select_db("doencas", $db) or die("Ocorreu o seguinte erro na seleção do db: ".mysql_error());
+  mysql_query("SET NAMES 'utf8'");
+  mysql_query('SET description=utf8');
 
+?>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -37,12 +44,13 @@
       <ul class="nav navbar-nav navbar">
         <li><a href="fastHospitals.php">Hospitais próximos</a></li>
       </ul>
-      <form class="navbar-form navbar-left" role="search">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <form action="" method="post" name="form_busca"class="navbar-form navbar-left" role="search">
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <div class="form-group">
-          <input type="text" class="form-control" placeholder="O que você está sentindo?">
+          <input id="search" name="search" type="text" class="form-control" required="" placeholder="O que você está sentindo?">
         </div>
-      &nbsp; <button type="submit" class="btn btn-default">Procurar</button>
+      &nbsp; <button name="botao"type="submit" class="btn btn-default">Procurar</button>
       </form>
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
@@ -57,6 +65,108 @@
     </div>
   </div>
 </nav>
+      <?php
+        if(isset($_POST['botao'])){
+          $busca = $_POST['search'];
+
+          if($busca == '' or $busca == " "){
+            echo '<br><center><img src="loading.gif" width="144" height="144"></center>';
+          }else{
+          $busca_dividida = explode(',', $busca);
+          $quant = count($busca_dividida);
+          $id_mostrado = array("");
+
+          for($i=0; $i < $quant; $i++){
+            $pesquisa = $busca_dividida[$i];
+
+            $sql = mysql_query("SELECT * FROM doenca WHERE tags LIKE '%$pesquisa%' ");
+            $quant_campos = mysql_num_rows($sql);
+            if ($quant_campos == 0){
+              echo '<br><center><img src="exclamacao.png" width="144" height="144"></center><br><br><center><h2>Nenhuma doença encontrada com esses sintomas.</h2></center>';
+            }
+            else{
+              while($linha = mysql_fetch_array($sql)){
+                $id = $linha['ID'];
+                $name = $linha['name'];
+                $tags = $linha['tags'];
+                $description = $linha['description'];
+                $cause = $linha['cause'];
+                $tratament = $linha['tratament'];
+                $medicaments = $linha['medicaments'];
+                $prevetion = $linha['prevetion'];
+             }
+      ?>
+<center><div class="row">
+  <div class="col-sm-6 col-md-8 col-md-offset-2">
+    <div class="thumbnail">
+      <div class="caption">
+
+<li class="dropdown">
+  <?php 
+    if(!array_search($id, $id_mostrado)){
+    echo "<center><h3>".$name."</h3><p>".$tags."</p>";?>
+          <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="caret"></span></a>
+          <ul class="dropdown-menu">
+          <li><br>
+      <div class="panel panel-success">
+        <div class="panel-heading"><h4>Descrição</h4></div>
+        <div class="panel-body">
+          <?php
+            echo"<p>".$description."</p>";
+          ?>
+        </div>
+      </div>
+      <div class="panel panel-success">
+        <div class="panel-heading"><h4>Causas</h4></div>
+        <div class="panel-body">
+          <?php
+            echo"<p>".$cause."</p>";
+          ?>
+        </div>
+      </div>
+      <div class="panel panel-success">
+        <div class="panel-heading"><h4>Tratamento</h4></div>
+        <div class="panel-body">
+          <?php
+            echo"<p>".$tratament."</p>";
+          ?>
+        </div>
+      </div>
+      <div class="panel panel-success">
+        <div class="panel-heading"><h4>Medicamentos</h4></div>
+        <div class="panel-body">
+          <?php
+            echo"<p>".$medicaments."</p>";
+          ?>
+        </div>
+      </div>
+      <div class="panel panel-success">
+        <div class="panel-heading"><h4>Prevenção</h4></div>
+        <div class="panel-body">
+          <?php
+            echo"<p>".$prevetion."</p>";
+          array_push($id_mostrado, "$id");
+          }
+          ?>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</center>
+</li>
+</li>
+</div>
+</div>
+</div>
+</div>
+</center>
+<?php
+}
+}
+}
+}
+?>
 
 <!-- 
   Não Mecher Aqui em Baixo
