@@ -1,78 +1,78 @@
-﻿<!DOCTYPE html>
-<form action="confirm_login.php" class="form-horizontal" method="post">
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- Titulo da Pagina -->
-    <title>DiagPre</title>
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-  </head>
+  ﻿<!DOCTYPE html>
+  <form action="confirm_login.php" class="form-horizontal" method="post">
+  <html lang="en">
+    <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <!-- Titulo da Pagina -->
+      <title>DiagPre</title>
+      <link href="css/bootstrap.min.css" rel="stylesheet">
+    </head>
 
-  <body>
-  <nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <!-- Botão principal -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand">DiagPre</a>
+    <body>
+    <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <!-- Botão principal -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand">DiagPre</a>
+      </div>
+
+      <!-- Menu -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+          <li class="active"><a href="login.html">Login</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="form.html">Cadastrar</a></li>
+        </ul>
+      </div>
     </div>
+  </nav>
 
-    <!-- Menu -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav navbar-right">
-        <li class="active"><a href="login.html">Login</a></li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="form.html">Cadastrar</a></li>
-      </ul>
+  <form class="form-horizontal">
+  <fieldset>
+  <h1><center>Login</center></h1>
+  <!-- Usuário -->
+  <div class="form-group">
+    <label class="col-md-4 control-label" for="usuario">Usuário</label>
+    <div class="col-md-4">
+    <input id="usuario" name="usuario" type="text" placeholder="Digite seu Usuário" class="form-control input-md">
+
     </div>
   </div>
-</nav>
 
-<form class="form-horizontal">
-<fieldset>
-<h1><center>Login</center></h1>
-<!-- Usuário -->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="usuario">Usuário</label>  
-  <div class="col-md-4">
-  <input id="usuario" name="usuario" type="text" placeholder="" class="form-control input-md">
-    
+  <!-- Senha -->
+  <div class="form-group">
+    <label class="col-md-4 control-label" for="senha">Senha</label>
+      <div class="col-md-4">
+      <input id="senha" name="senha" type="password" placeholder="Digite sua senha" class="form-control input-md">
+
+    </div>
   </div>
-</div>
 
-<!-- Senha -->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="senha">Senha</label>
-  <div class="col-md-4">
-    <input id="senha" name="senha" type="password" placeholder="" class="form-control input-md">
-    
+  <!-- Confirmar -->
+  <div class="form-group">
+    <label class="col-md-4 control-label" for="confirmNext"></label>
+    <div class="col-md-4">
+      <center><button id="confirmNext" name="confirmNext" class="btn btn-primary">Confirmar</button></center>
+    </div>
   </div>
-</div>
+  </fieldset>
+  </form>
+    <center><a href="form.html">Criar Conta.</a>   <a href="password.html">Esqueci a senha!</a></center>
 
-<!-- Confirmar -->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="confirmNext"></label>
-  <div class="col-md-4">
-    <center><button id="confirmNext" name="confirmNext" class="btn btn-primary">Confirmar</button></center>
-  </div>
-</div>
-</fieldset>
-</form>
-  <center><a href="form.html">Criar Conta.</a>   <a href="password.html">Esqueci a senha!</a></center>
-
-</fieldset>
-</form>
-<!-- 
-  NÃO MECHER ABAIXO DAQUI
--->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-  </body>
-</html>
+  </fieldset>
+  </form>
+  <!--
+    NÃO MECHER ABAIXO DAQUI
+  -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+      <script src="js/bootstrap.min.js"></script>
+    </body>
+  </html>
