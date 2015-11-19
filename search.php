@@ -67,7 +67,7 @@
     </div>
   </div>
 </nav>
-       <?php
+      <?php
         if(isset($_POST['botao'])){
           $busca = $_POST['search'];
 
@@ -90,6 +90,7 @@
               while($linha = mysql_fetch_array($sql)){
                 $id = $linha['ID'];
                 $name = $linha['name'];
+                $subname = $linha['subname'];
                 $tags = $linha['tags'];
                 $description = $linha['description'];
                 $cause = $linha['cause'];
@@ -106,8 +107,8 @@
 <li class="dropdown">
   <?php 
     if(!array_search($id, $id_mostrado)){
-    echo "<center><h3>".$name."</h3><p>".$tags."</p>";?>
-          <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="caret"></span></a>
+    echo "<center><h3>".$name."</h3><p>Se você está com essa doença, pode estar sentindo esses outros sintomas também:<br><b>".$subname."</b></p>";?>
+          <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Saiba mais <span class="caret"></span></a>
           <ul class="dropdown-menu">
           <li><br>
       <div class="panel panel-success">
