@@ -73,115 +73,118 @@ mysql_query('SET description=utf8');
     $busca = $_POST['search'];
 
     if($busca == '' or $busca == " "){
-      echo '<br><center><img src="loading.gif" width="144" height="144"></center>';
-    }else{
-      $busca_dividida = explode(',', $busca);
-      $quant = count($busca_dividida);
-      $id_mostrado = array("");
+      echo '<br><center><img src="houston.png"></center><br><br><center><h4>A sua busca está em branco.</h2></center>';
+      }else{
+        $busca_dividida = explode(',', $busca);
+        $quant = count($busca_dividida);
+        $id_mostrado = array("");
 
-      for($i=0; $i < $quant; $i++){
-        $pesquisa = $busca_dividida[$i];
+        for($i=0; $i < $quant; $i++){
+          $pesquisa = $busca_dividida[$i];
 
-        $sql = mysql_query("SELECT * FROM doenca WHERE tags LIKE '%$pesquisa%' ");
-        $quant_campos = mysql_num_rows($sql);
-        if ($quant_campos == 0){
-          echo '<br><center><img src="exclamacao.png" width="144" height="144"></center><br><br><center><h2>Nenhuma doença encontrada com esses sintomas.</h2></center>';
-        }
-        else{
-          while($linha = mysql_fetch_array($sql)){
-            $id = $linha['ID'];
-            $name = $linha['name'];
-            $subname = $linha['subname'];
-            $tags = $linha['tags'];
-            $description = $linha['description'];
-            $cause = $linha['cause'];
-            $tratament = $linha['tratament'];
-            $medicaments = $linha['medicaments'];
-            $prevetion = $linha['prevetion'];
+          $sql = mysql_query("SELECT * FROM doenca WHERE tags LIKE '%$pesquisa%' ");
+          $quant_campos = mysql_num_rows($sql);
+          if ($quant_campos == 0){
+            echo '<br><center><img src="houston.png"></center><br><br><center><h3>Nenhuma doença encontrada com esses sintomas.</h3></center>';
           }
-          ?>
+          else{
+            while($linha = mysql_fetch_array($sql)){
+              $id = $linha['ID'];
+              $image = $linha['image'];
+              $name = $linha['name'];
+              $subname = $linha['subname'];
+              $tags = $linha['tags'];
+              $description = $linha['description'];
+              $cause = $linha['cause'];
+              $tratament = $linha['tratament'];
+              $medicaments = $linha['medicaments'];
+              $prevetion = $linha['prevetion'];
+            }
+            ?>
 
-          <!-- Container de Descrições da doença -->
+            <!-- Container de Descrições da doença -->
 
-          <center>
-            <div class="row">
-              <div class="col-sm-6 col-md-8 col-md-offset-2">
-                <div class="thumbnail">
-                  <div class="caption">
-                    <li class="dropdown">
-                      <?php
-                      if(!array_search($id, $id_mostrado)){
-                        echo "<center><h3>".$name."</h3><p>Se você está com essa doença, pode estar sentindo esses outros sintomas também:<br><b>".$subname."</b></p>";?>
-                          <a class="dropdown-toggle js-toggle-content" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Saiba mais <span class="caret"></span></a>
-                          <ul class="dropdown-menu my-content">
-                            <li><br>
-                              <div class="panel panel-success">
-                                <div class="panel-heading"><h4>Descrição</h4></div>
-                                <div class="panel-body">
-                                  <?php
-                                  echo"<p>".$description."</p>";
+            <center>
+              <?php
+              if(!array_search($id, $id_mostrado)){?>
+                <div class="row">
+                  <div class="col-sm-6 col-md-8 col-md-offset-2">
+                    <div class="thumbnail">
+                      <div class="caption">
+                        <div class="dropdown">
+                          <center><img src="<?php echo $image; ?>" width="200" height="144"></center>
+                          <?php
+                          echo "<center><h3>".$name."</h3><p>Se você está com essa doença, pode estar sentindo esses outros sintomas também:<br><b>".$subname."</b></p>";?>
+                            <a class="dropdown-toggle js-toggle-content" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Saiba mais <span class="caret"></span></a>
+                            <ul class="dropdown-menu my-content">
+                              <li>
+                                <div class="panel panel-success">
+                                  <div class="panel-heading"><h4>Descrição</h4></div>
+                                  <div class="panel-body">
+                                    <?php
+                                    echo"<p>".$description."</p>";
+                                    ?>
+                                  </div>
+                                </div>
+                                <div class="panel panel-success">
+                                  <div class="panel-heading"><h4>Causas</h4></div>
+                                  <div class="panel-body">
+                                    <?php
+                                    echo"<p>".$cause."</p>";
+                                    ?>
+                                  </div>
+                                </div>
+                                <div class="panel panel-success">
+                                  <div class="panel-heading"><h4>Tratamento</h4></div>
+                                  <div class="panel-body">
+                                    <?php
+                                    echo"<p>".$tratament."</p>";
+                                    ?>
+                                  </div>
+                                </div>
+                                <div class="panel panel-success">
+                                  <div class="panel-heading"><h4>Medicamentos</h4></div>
+                                  <div class="panel-body">
+                                    <?php
+                                    echo"<p>".$medicaments."</p>";
+                                    ?>
+                                  </div>
+                                </div>
+                                <div class="panel panel-success">
+                                  <div class="panel-heading"><h4>Prevenção</h4></div>
+                                  <div class="panel-body">
+                                    <?php
+                                    echo"<p>".$prevetion."</p>";
+                                    array_push($id_mostrado, "$id");
+                                  }
                                   ?>
                                 </div>
                               </div>
-                              <div class="panel panel-success">
-                                <div class="panel-heading"><h4>Causas</h4></div>
-                                <div class="panel-body">
-                                  <?php
-                                  echo"<p>".$cause."</p>";
-                                  ?>
-                                </div>
-                              </div>
-                              <div class="panel panel-success">
-                                <div class="panel-heading"><h4>Tratamento</h4></div>
-                                <div class="panel-body">
-                                  <?php
-                                  echo"<p>".$tratament."</p>";
-                                  ?>
-                                </div>
-                              </div>
-                              <div class="panel panel-success">
-                                <div class="panel-heading"><h4>Medicamentos</h4></div>
-                                <div class="panel-body">
-                                  <?php
-                                  echo"<p>".$medicaments."</p>";
-                                  ?>
-                                </div>
-                              </div>
-                              <div class="panel panel-success">
-                                <div class="panel-heading"><h4>Prevenção</h4></div>
-                                <div class="panel-body">
-                                  <?php
-                                  echo"<p>".$prevetion."</p>";
-                                  array_push($id_mostrado, "$id");
-                                }
-                                ?>
-                              </div>
-                            </div>
-                          </li>
-                        </ul>
-                      </li>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            </center>
-            <?php
+              </center>
+              <?php
+            }
           }
         }
       }
-    }
-    ?>
+      ?>
 
-    <!--
-    Não Mecher Aqui em Baixo
-  -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <script>
-  $('js-toggle-content').on('click', function(e) {
-    e.preventDefault();
-    $('.my-content').slideToggle();
-  });
-  </script>
-</body>
-</html>
+      <!--
+      Não Mecher Aqui em Baixo
+    -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script>
+    $('js-toggle-content').on('click', function(e) {
+      e.preventDefault();
+      $('.my-content').slideToggle();
+    });
+    </script>
+  </body>
+  </html>

@@ -59,6 +59,88 @@
     </div>
   </nav>
 
+<!-- Formulário de Edição -->
+
+<form class="form-horizontal" action="edit_User.php">
+<fieldset>
+<center>
+<div class="form-group">
+  <label class="col-md-4 control-label" for="firstUser">Usuário</label>
+  <div class="col-md-4">
+  <input id="firstUser" name="firstUser" type="text" placeholder="Digite o seu Usuário Atual" class="form-control input-md">
+
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="newUser">Novo Usuário</label>
+  <div class="col-md-4">
+  <input id="newUser" name="newUser" type="text" placeholder="Digite o seu Novo Usuário" class="form-control input-md">
+
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="editUser"></label>
+  <div class="col-md-4">
+    <button id="editUser" name="editUser" class="btn btn-primary">Modificar Usuário</button>
+  </div>
+</div>
+
+</form>
+<form class="form-horizontal" action="edit_Pass.php">
+<div class="form-group">
+  <label class="col-md-4 control-label" for="firstPass">Senha</label>
+  <div class="col-md-4">
+    <input id="firstPass" name="firstPass" type="password" placeholder="Digite sua Senha Atual" class="form-control input-md">
+
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="newPass">Nova Senha</label>
+  <div class="col-md-4">
+    <input id="newPass" name="newPass" type="password" placeholder="Digite sua Nova Senha" class="form-control input-md">
+
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="editPass"></label>
+  <div class="col-md-4">
+    <button id="editPass" name="editPass" class="btn btn-primary">Modificar Senha</button>
+  </div>
+</div>
+</form>
+
+<form class="form-horizontal" action="edit_Email.php">
+<div class="form-group">
+  <label class="col-md-4 control-label" for="firstEmail">E-mail</label>
+  <div class="col-md-4">
+  <input id="firstEmail" name="firstEmail" type="text" placeholder="Digite o seu E-mail Atual" class="form-control input-md">
+
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="newEmail">Novo E-mail</label>
+  <div class="col-md-4">
+  <input id="newEmail" name="newEmail" type="text" placeholder="Digite o seu Novo E-mail" class="form-control input-md">
+
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="editEmail"></label>
+  <div class="col-md-4">
+    <button id="editEmail" name="editEmail" class="btn btn-primary">Modificar E-mail</button>
+  </div>
+</div>
+</center>
+</fieldset>
+</form>
+
+
   <!--
   Não Mecher Aqui em Baixo
 -->
