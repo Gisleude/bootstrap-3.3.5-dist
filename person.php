@@ -173,8 +173,10 @@ mysql_query('SET description=utf8');
           }
         }
       }
-      ?>
-
+      ?><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+      <center><div>
+          <a href="https://docs.google.com/forms/d/1hqb9mdxw_DTK91dsD5aWvT5xpT6Ukx93iieYA6nnS7Y/viewform"><button id="editPass" name="editPass" class="btn btn-warning">Faça uma avaliação do site!</button></a>
+        </div></center>
       <!--
       Não Mecher Aqui em Baixo
     -->
